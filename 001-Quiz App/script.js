@@ -375,7 +375,7 @@ function showOptions(currentIndex) {
         } else {
           showResult();
         }
-      }, 0);
+      }, 2000);
     });
   }
 }

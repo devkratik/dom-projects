@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Time</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!--Start Screen-->
+      <div class="screen active" id="start-screen">
+        <h1 class="screen__title">Quiz Time</h1>
+        <p class="screen__subtitle">
+          ( you can choose your particular card below )
+        </p>
+        <div class="cards">
+          <div class="card cards__html" data-category="html">html</div>
+          <div class="card cards__css" data-category="css">css</div>
+          <div class="card cards__javascript" data-category="javascript">
+            javascript
+          </div>
+        </div>
+
+        <button class="btn start__btn">Start Quiz</button>
+      </div>
+      <!--Quiz Screen-->
+      <div class="screen" id="quiz-screen">
+        <div class="screen__question">Question goes here ?</div>
+        <div class="stats">
+          <div class="stats__current-question">
+            Question : <span class="question-num">1</span> of
+            <span class="total-question">10</span>
+          </div>
+          <div class="stats__score">
+            Score : <span class="current-score">0</span>
+          </div>
+        </div>
+        <div class="screen__answers"></div>
+        <div class="progress">
+          <div class="progress__bar"></div>
+        </div>
+      </div>
+
+      <!--Result Screen-->
+      <div class="screen" id="result-screen">
+        <div class="screen__title">Quiz Result</div>
+        <div class="screen__result">
+          <p class="screen__final">
+            You scored <span class="final-score">0</span> out of
+            <span class="max-score">10</span>
+          </p>
+          <p class="screen__quote">Keep Studying , You will get better!</p>
+        </div>
+        <div class="btn restart__btn">Restart Quiz</div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

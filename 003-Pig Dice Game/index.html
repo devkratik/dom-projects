@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dice Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!--player 1-->
+      <div class="player active" id="player-1">
+        <div class="player__title">Player 1</div>
+        <div class="player__total-score">0</div>
+        <div class="current-score">
+          <p class="current-score__title">Current</p>
+          <div class="current-score__container">0</div>
+        </div>
+        <div class="controls">
+          <button class="roll"><i class="fa fa-dice"></i>&nbsp;Roll</button>
+          <button class="hold">
+            <i class="fa fa-hand-holding"></i>&nbsp;Hold
+          </button>
+        </div>
+      </div>
+      <!--player 2-->
+      <div class="player" id="player-2">
+        <div class="player__title">Player 2</div>
+        <div class="player__total-score">0</div>
+        <div class="current-score">
+          <p class="current-score__title">Current</p>
+          <div class="current-score__container">0</div>
+        </div>
+        <div class="controls">
+          <button class="roll"><i class="fa fa-dice"></i>&nbsp;Roll</button>
+          <button class="hold">
+            <i class="fa fa-hand-holding"></i>&nbsp;Hold
+          </button>
+        </div>
+      </div>
+      <!--Dice images-->
+      <figure class="dice-image">
+        <img src="./dice-1.png" alt="dice-result" class="dice-image__content" />
+      </figure>
+      <!--mobile common restart btn-->
+      <button class="btn-restart">
+        <i class="fa fa-sync"></i>
+      </button>
+    </div>
+    <div class="overlay">
+      <div class="overlay__content">
+        <p class="overlay__content-message">Message goes here...</p>
+        <div class="overlay__close"><i class="fa fa-close"></i></div>
+      </div>
+    </div>
+  </body>
+</html>

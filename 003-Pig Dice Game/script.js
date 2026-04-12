@@ -8,6 +8,8 @@ const holdBtns = document.querySelectorAll('.hold');
 let activePlayer = 0;
 let currentScore = 0;
 let totalScore = [0, 0];
+const restartBtn = document.querySelector('.btn-restart');
+restartBtn.classList.add('disabled');
 
 document.querySelectorAll('.controls').forEach(elem => {
   elem.style.display = 'none';
@@ -87,10 +89,6 @@ function stopGame() {
   document.querySelectorAll('.controls').forEach(elem => {
     elem.style.display = 'none';
   });
-  activePlayer = 0;
-  currentScore = 0;
-  totalScore[0] = 0;
-  totalScore[1] = 0;
 
   players[activePlayer].querySelector('.controls').style.display = 'flex';
   players[activePlayer].querySelector('.controls').classList.add('disabled');
@@ -99,4 +97,39 @@ function stopGame() {
 function showModal(message) {
   document.querySelector('.overlay').classList.add('show');
   document.querySelector('.overlay__content-message').textContent = message;
+}
+
+document
+  .querySelector('.overlay__close')
+  .addEventListener('click', closeOverlay);
+
+function closeOverlay() {
+  restartBtn.classList.remove('disabled');
+  document.querySelector('.overlay').classList.remove('show');
+}
+
+restartBtn.addEventListener('click', restartGame);
+
+function restartGame() {
+  players[activePlayer].classList.remove('winner');
+  document.querySelectorAll('.player__total-score').forEach(el => {
+    el.textContent = 0;
+  });
+  document.querySelectorAll('.player').forEach(el => {
+    el.classList.remove('active');
+  });
+  activePlayer = 0;
+  currentScore = 0;
+
+  totalScore[0] = 0;
+  totalScore[1] = 0;
+  players[activePlayer].classList.add('active');
+
+  document.querySelectorAll('.controls').forEach(elem => {
+    elem.classList.remove('disabled');
+  });
+  document.querySelectorAll('.controls').forEach(elem => {
+    elem.style.display = 'none';
+  });
+  players[activePlayer].querySelector('.controls').style.display = 'flex';
 }

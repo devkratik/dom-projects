@@ -209,6 +209,7 @@ body {
   position: absolute;
   top: -24px;
   right: -20px;
+  cursor: pointer;
 }
 @media (max-width: 780px) {
   .container {

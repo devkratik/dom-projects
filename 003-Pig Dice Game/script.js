@@ -63,7 +63,7 @@ function holdScore(e) {
   players[activePlayer].querySelector('.current-score__container').textContent =
     0;
 
-  if (totalScore[activePlayer] >= 10) {
+  if (totalScore[activePlayer] >= 100) {
     stopGame();
     return;
   }

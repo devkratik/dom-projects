@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  padding: 1.2rem 2.4rem;
+  background-color: #fff;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 1.2rem;
+  width: 100%;
+  max-width: 950px;
+  gap: 3rem;
+  margin-inline: auto;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+.container__title {
+  font-size: 3.2rem;
+  font-family: "Patrick Hand", cursive;
+  letter-spacing: 1.2px;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.board {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 285px;
+  background-color: #e3e4e8;
+  padding: 1.2rem 1.4rem;
+  border-radius: 4px;
+  box-shadow: 0px 2px 10px #00000023;
+}
+.board.over {
+  background-color: #d1d3d8;
+}
+.board__title {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #000;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.board__card {
+  background-color: #fff;
+  color: #000;
+  font-size: 1.6rem;
+  font-weight: 400;
+  width: 100%;
+  padding: 1rem 0.4rem;
+  margin-bottom: 1.4rem;
+  text-align: center;
+  border-radius: 4px;
+  cursor: grab;
+  box-shadow: 0px 1px 8px #00000023;
+
+  transition:
+    transform 0.2s ease-in-out,
+    box-shadow 0.2s ease;
+}
+.board__card:hover {
+  transform: translateY(-1px);
+}
+.board__card:active {
+  cursor: grabbing;
+  box-shadow: 0px 4px 12px #00000023;
+}

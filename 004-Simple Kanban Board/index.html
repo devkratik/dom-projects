@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <h1 class="container__title">Simple Kanban Board</h1>
+    <div class="container">
+      <div class="container__todo board" id="board1">
+        <div class="board__title">To Do</div>
+        <div class="board__card" draggable="true" id="card1">Wash dishes</div>
+        <div class="board__card" draggable="true" id="card2">Buy groceries</div>
+      </div>
+      <div class="container__progress board" id="board2">
+        <div class="board__title">In Progress</div>
+        <div class="board__card" draggable="true" id="card3">Learn to code</div>
+      </div>
+      <div class="container__done board" id="board3">
+        <div class="board__title">Done</div>
+      </div>
+    </div>
+  </body>
+</html>

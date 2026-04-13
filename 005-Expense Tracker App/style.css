@@ -109,9 +109,25 @@ body {
 .record {
   display: flex;
   flex-direction: column;
-  border: 1px solid #af04ff;
   grid-area: record;
   padding: 1.2rem;
+}
+.record__transactions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.transaction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.8rem 4.2rem 1.8rem 1.8rem;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  background-color: #fff;
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.258);
+  list-style-type: none;
 }
 
 .controls {

@@ -17,15 +17,17 @@
       <div class="container__app">
         <div class="dashboard">
           <div class="dashboard__title">Your Balance</div>
-          <div class="dashboard__balance-value">$0,000.00</div>
+          <div class="dashboard__balance-value" id="total-balance">
+            $0,000.00
+          </div>
           <div class="dashboard__cards">
             <div class="card" id="income">
               <div class="card__title">Income</div>
-              <div class="card__value">$0,000.00</div>
+              <div class="card__value" id="total-income">$0,000.00</div>
             </div>
             <div class="card" id="expense">
               <div class="card__title">Expense</div>
-              <div class="card__value">$0,000.00</div>
+              <div class="card__value" id="total-expense">$0,000.00</div>
             </div>
           </div>
         </div>
@@ -47,7 +49,7 @@
             />
             <label for="amount">Amount</label>
             <input
-              type="text"
+              type="number"
               id="amount"
               name="amount"
               placeholder="Enter amount..."

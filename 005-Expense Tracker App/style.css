@@ -21,6 +21,7 @@ body {
   background: linear-gradient(129deg, #2a7b9b 0%, #57c785 90%);
   background-repeat: no-repeat;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
+  position: relative;
 }
 .container {
   display: flex;
@@ -75,6 +76,7 @@ body {
   font-size: 2.4rem;
   font-weight: 400;
   margin-bottom: 1rem;
+  color: #fff;
 }
 .dashboard__balance-value {
   font-size: 4.2rem;
@@ -100,11 +102,28 @@ body {
   border-radius: 10px;
   padding: 1.2rem;
 }
-.card__title {
-  font-size: 1.6rem;
+#income .card__title {
+  font-size: 2.8rem;
+  color: #2a9b4e;
+  font-weight: 500;
 }
-.card__value {
-  font-size: 2.4rem;
+#income .card__value {
+  color: #2a9b4e;
+  font-weight: 400;
+  font-size: 2rem;
+}
+#expense .card__title {
+  font-size: 2.8rem;
+  color: #b31800;
+  font-weight: 500;
+}
+#expense .card__value {
+  color: #b31800;
+  font-weight: 400;
+  font-size: 2rem;
+}
+#total-balance {
+  color: #ffffff;
 }
 .record {
   display: flex;
@@ -130,6 +149,33 @@ body {
   list-style-type: none;
 }
 
+.transaction:hover .delete-btn {
+  opacity: 100%;
+}
+
+.income {
+  border-right: 4px solid #009500;
+  color: #009500;
+}
+.expense {
+  border-right: 4px solid #cc0101;
+  color: #cc0101;
+}
+.delete-btn {
+  color: #cc0101;
+  background-color: transparent;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: none;
+  opacity: 0%;
+  padding: 0.4rem;
+  cursor: pointer;
+  margin-left: 0.8rem;
+  transition: opacity 0.2s ease;
+}
+.delete-btn:hover {
+  background-color: #ff887658;
+}
 .controls {
   display: flex;
   flex-direction: column;
@@ -180,6 +226,47 @@ body {
   opacity: 100%;
 }
 
+.overlay {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000000cf;
+  display: none;
+}
+.content {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+}
+.content__close {
+  color: #ff2200;
+  font-size: 3.2rem;
+  position: absolute;
+  top: -30px;
+  right: -40px;
+  cursor: pointer;
+}
+.content__close:active {
+  scale: 0.8;
+}
+.content__message {
+  color: #b31800;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  font-size: 2.4rem;
+}
+.show {
+  display: flex;
+}
 @media (max-width: 550px) {
   .container__app {
     grid-template-areas:

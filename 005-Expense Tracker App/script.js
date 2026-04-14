@@ -2,56 +2,107 @@
 const totalBalance = document.getElementById("total-balance");
 const totalIncome = document.getElementById("total-income");
 const totalExpense = document.getElementById("total-expense");
-const transactionsContainer = document.getElementById("transaction-list");
 const transactionDescription = document.getElementById("description");
 const transactionAmount = document.getElementById("amount");
 const recordContainer = document.getElementById("transaction-list");
 const submitBtn = document.getElementById("submit");
+const overlayContainer = document.getElementById("overlay");
+const modalMessage = document.getElementById("modal-message");
+const modalClose = document.getElementById("modal-close");
+const transactionFormElement = document.getElementById("transaction-form");
 
-let accountBalance = 0;
-let accountIncome = 0;
-let accountExpense = 0;
+// initially:
+let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
 
-const addIncome = function (amountValue) {
-  accountIncome += amountValue;
-  accountBalance = accountBalance + amountValue;
-  totalIncome.textContent = `\$ ${accountIncome}`;
-  totalBalance.textContent = `\$ ${accountBalance}`;
-};
-const addExpense = function (amountValue) {
-  amountValue = Math.abs(amountValue);
-  if (amountValue <= accountBalance) {
-    accountExpense += amountValue;
-    accountBalance = Math.floor(accountBalance - amountValue);
-    totalExpense.textContent = `\$ ${accountExpense}`;
-    totalBalance.textContent = `\$ ${accountBalance}`;
-  } else {
-    console.log(`Account Balance is not enough!`);
-  }
-};
+// adding submit event to the transaction for element:
+transactionFormElement.addEventListener("submit", addTransaction);
 
-const createRecord = function (amount, description) {
-  let currentRecord = document.createElement("li");
-  currentRecord.classList.add("transaction");
-  let transactedValue = document.createElement("span");
-  let transactionText = document.createElement("span");
-  currentRecord.style.borderRight = "4px solid";
-  currentRecord.style.borderRightColor = amount > 0 ? "green" : "red";
-  currentRecord.append(transactionText, transactedValue);
-  transactedValue.textContent = amount;
-  transactionText.textContent = description;
-
-  recordContainer.append(currentRecord);
-};
-
-submitBtn.addEventListener("click", function (e) {
+function addTransaction(e) {
   e.preventDefault();
-  let descriptionText = transactionDescription.value;
-  let enteredAmount = Number(transactionAmount.value);
-  if (!descriptionText) return;
-  if (!enteredAmount) return;
-  enteredAmount > 0 ? addIncome(enteredAmount) : addExpense(enteredAmount);
-  createRecord(enteredAmount, descriptionText);
-  transactionDescription.value = "";
-  transactionAmount.value = "";
-});
+  // get form values
+  const description = transactionDescription.value.trim();
+  const amount = parseFloat(transactionAmount.value);
+  if (!description) return;
+  if (!amount) return;
+  //create transactions
+  transactions.push({
+    id: Date.now(),
+    // description: description, shorthand below
+    // amount:amount, shorthand below
+    description,
+    amount,
+  });
+
+  localStorage.setItem("transactions", JSON.stringify(transactions));
+
+  // update transaction list:
+  updateTransactionList();
+  updateSummary();
+
+  //reset form
+  transactionFormElement.reset();
+}
+
+function updateTransactionList() {
+  recordContainer.innerHTML = "";
+
+  const sortedTransactions = [...transactions].reverse();
+
+  sortedTransactions.forEach((transaction) => {
+    const transactionEl = createTransactionElement(transaction);
+    recordContainer.appendChild(transactionEl);
+  });
+}
+
+function createTransactionElement(transaction) {
+  const li = document.createElement("li");
+  li.classList.add("transaction");
+  li.classList.add(transaction.amount > 0 ? "income" : "expense");
+
+  li.innerHTML = `
+     <span>${transaction.description}</span>
+     <span>${formatCurrency(transaction.amount)}
+      <button class="delete-btn" onClick = "removeTransaction(${transaction.id})"><i class="fa fa-close"></i></button>
+     </span>
+  `;
+  return li;
+}
+
+function updateSummary() {
+  const balance = transactions.reduce(
+    (acc, transaction) => acc + transaction.amount,
+    0,
+  );
+  const income = transactions
+    .filter((transaction) => transaction.amount > 0)
+    .reduce((acc, transaction) => acc + transaction.amount, 0);
+  const expense = transactions
+    .filter((transaction) => transaction.amount < 0)
+    .reduce((acc, transaction) => acc + transaction.amount, 0);
+
+  // update UI
+  totalBalance.textContent = formatCurrency(balance);
+  totalIncome.textContent = formatCurrency(income);
+  totalExpense.textContent = formatCurrency(expense);
+}
+
+// format currency
+function formatCurrency(number) {
+  return new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+  }).format(number);
+}
+
+//remove transaction
+function removeTransaction(id) {
+  //filter we want to delete
+  transactions = transactions.filter((transaction) => transaction.id !== id);
+  localStorage.setItem("transactions", JSON.stringify(transactions));
+  updateSummary();
+  updateTransactionList();
+}
+
+//INITIAL RENDER
+updateSummary();
+updateTransactionList();

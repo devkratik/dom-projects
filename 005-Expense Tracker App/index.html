@@ -17,17 +17,15 @@
       <div class="container__app">
         <div class="dashboard">
           <div class="dashboard__title">Your Balance</div>
-          <div class="dashboard__balance-value" id="total-balance">
-            $0,000.00
-          </div>
+          <div class="dashboard__balance-value" id="total-balance">₹ 0</div>
           <div class="dashboard__cards">
             <div class="card" id="income">
               <div class="card__title">Income</div>
-              <div class="card__value" id="total-income">$0,000.00</div>
+              <div class="card__value" id="total-income">₹ 0</div>
             </div>
             <div class="card" id="expense">
               <div class="card__title">Expense</div>
-              <div class="card__value" id="total-expense">$0,000.00</div>
+              <div class="card__value" id="total-expense">₹ 0</div>
             </div>
           </div>
         </div>
@@ -39,7 +37,7 @@
         </div>
         <div class="controls">
           <div class="controls__title">Add Transaction</div>
-          <form class="controls__form">
+          <form class="controls__form" id="transaction-form">
             <label for="description">Description</label>
             <input
               type="text"
@@ -61,6 +59,14 @@
               Add Transaction
             </button>
           </form>
+        </div>
+      </div>
+    </div>
+    <div class="overlay" id="overlay">
+      <div class="content">
+        <h2 class="content__message" id="modal-message"></h2>
+        <div class="content__close" id="modal-close">
+          <i class="fa fa-close"></i>
         </div>
       </div>
     </div>

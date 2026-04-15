@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 520px;
+  margin-inline: auto;
+  border: 1px solid black;
+  padding: 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0px 1px 12px #00000016;
+}
+.container__title {
+  font-family: "Zen Dots", Arial, Helvetica, sans-serif;
+  font-size: 3.6rem;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 3.2rem;
+}
+.container__form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.6rem;
+  width: 100%;
+  margin-bottom: 1.2rem;
+}
+.container__task-description,
+.container__form-task {
+  width: 100%;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  outline: none;
+  border: 1px solid gray;
+}
+.container__task-description {
+  resize: none;
+}
+.container__add-button {
+  width: 100%;
+  background-color: #000;
+  border: 1px solid orange;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+}
+.container__add-button:hover {
+  opacity: 70%;
+}
+
+.container__add-button:active {
+  opacity: 100%;
+}
+
+.container__task-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  border: 1px solid orange;
+  padding: 0.8rem 1rem;
+  flex: 1;
+}
+.task-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.4rem;
+  background-color: #f6f6f6;
+  padding: 0.4rem 1rem;
+  list-style-type: none;
+}
+.task-info {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  padding: 0.4rem 0.6rem;
+  font-size: 1.2rem;
+  color: #ff0000;
+}
+
+.task-name {
+  font-size: 1.6rem;
+}
+.task-summary {
+  font-size: 1.2rem;
+  color: #9a9a9a;
+}

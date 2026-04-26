@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  background-color: #fff;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 420px;
+  margin-inline: auto;
+  padding: 1.2rem;
+  box-shadow: 0px 2px 12px #00000034;
+  border-radius: 10px;
+}
+.container__title {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: #022b3a;
+  margin-bottom: 2rem;
+}
+.container__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+input {
+  width: 100%;
+  background: transparent;
+  padding: 0.8rem 2rem;
+  border: 1px solid #022b3a;
+  font-size: 2rem;
+}
+input:focus {
+  outline: none;
+}
+
+.container__bookmark-btn {
+  width: 100%;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  color: #fff;
+  background-color: #022b3a;
+  font-size: 2rem;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+.container__bookmark-btn:hover {
+  opacity: 85%;
+  scale: 1.01;
+}
+.container__bookmark-btn:active {
+  opacity: 100%;
+  scale: 0.99;
+}
+.container__bookmarks {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.bookmark__item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.6rem 1rem;
+  border: 1px solid #dcdcdc;
+  background-color: #f9f6f6;
+  border-radius: 10px;
+  list-style-type: none;
+}
+
+.bookmark__item-link {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.8rem;
+  color: #00d400;
+  font-size: 2.2rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.bookmark__item-remove {
+  background-color: #d33838;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 500;
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: none;
+}

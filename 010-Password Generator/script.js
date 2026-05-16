@@ -64,7 +64,7 @@ function getPassword(
   includeUppercase,
 ) {
   let allCharacters = "";
-  //ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{}|;:,.<>?/</>
+  // ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{}|;:,.<>?/</>
 
   if (includeUppercase) allCharacters += uppercaseLetters;
   if (includeLowercase) allCharacters += lowercaseLetters;

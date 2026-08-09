@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coming Soon</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Space+Grotesk:300,regular,500,600,700"
+      rel="stylesheet"
+    />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!--background-->
+      <div class="bg">
+        <div class="bg__blob bg__blob--blob1"></div>
+        <div class="bg__blob bg__blob--blob2"></div>
+        <div class="bg__blob bg__blob--blob3"></div>
+      </div>
+      <!--logo-->
+      <div class="logo">
+        <div class="logo__icon">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+        <span class="logo__text">Flux</span>
+      </div>
+      <!--pulse-->
+      <div class="badge">
+        <div class="badge__pulse"></div>
+        <span class="badge__text">Coming Soon</span>
+      </div>
+      <!--title-->
+      <h1 class="container__title">Something awesome is brewing.</h1>
+      <!--subtitle-->
+      <p class="container__subtitle">
+        We're working hard to bring you something special. Be the first one to
+        know when we launch.
+      </p>
+      <!--time block-->
+      <div class="time-block">
+        <div class="time-group">
+          <span class="time-value" id="days">00</span>
+          <span class="time-text">Days</span>
+        </div>
+
+        <span class="seperator">:</span>
+
+        <div class="time-group">
+          <p class="time-value" id="hours">00</p>
+          <span class="time-text">Hours</span>
+        </div>
+
+        <span class="seperator">:</span>
+
+        <div class="time-group">
+          <p class="time-value" id="minutes">00</p>
+          <span class="time-text">Minutes</span>
+        </div>
+
+        <span class="seperator">:</span>
+
+        <div class="time-group">
+          <p class="time-value" id="seconds">00</p>
+          <span class="time-text">Seconds</span>
+        </div>
+      </div>
+      <!--email form-->
+      <form class="email-form" id="email-form">
+        <div class="input-group">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" required placeholder="Enter your email" />
+        </div>
+        <button type="submit">
+          Notify
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+      <!--success message-->
+      <div class="success-message hidden" id="success-message">
+        <i class="fa-solid fa-check-circle"></i>
+        <span>You are on the list! We'll notify you when we launch.</span>
+      </div>
+      <!--socials links-->
+      <div class="socials">
+        <a href="#">
+          <i class="fa-brands fa-discord"></i>
+        </a>
+        <a href="#">
+          <i class="fa-brands fa-x"></i>
+        </a>
+        <a href="#">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
